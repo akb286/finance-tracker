@@ -5,8 +5,7 @@ class UserStocksController < ApplicationController
       stock = Stock.new_from_lookup(params[:stock_ticker])
       stock.save
     end
-      @user_stock = UserStock.create(user: current_user, stock: stock)
-      flash[:success] = "Stock #{@user_stock.stock.name} was successfully added to portfolio"
-      redirect_to my_portfolio_path
-  end
+    @user_stock = UserStock.create(user: current_user, stock: stock)
+    flash[:success] = "Stock #{@user_stock.stock.name} was successfully added"
+    redirect_to my_portfolio_path
 end
