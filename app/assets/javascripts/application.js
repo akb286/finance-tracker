@@ -11,7 +11,14 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
-//= require_tree .
 //= require jquery
 //= require twitter/bootstrap
+//= require jquery_ujs
+//= require turbolinks
+//= require_tree .
+
+$(document).ready(function(){
+  $('#stock-lookup-form').on('ajax:complete', function(event, data, status){
+    $('#results').html(data.responseText)
+  })
+})
